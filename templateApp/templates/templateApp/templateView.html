@@ -1,7 +1,35 @@
 <html>
-	<body>
-		Incluir seu Texto HTML na View <b>templateView</b>
-		<br><br>
-		Texto: {{nome}}
-	</body>
+
+<head>
+	<title>Sistema de PetShop</title>
+	{% include "./widgets/bootstrap.html" %}
+</head>
+
+<body>
+	{% include "./widgets/navbar.html" %}
+	<div class="container">
+		<h1 class="py-4 text-center">Sistema de <b><span class="text-success">PET</span><span class="text-warning">SHOP</span></b></h1>
+		{% if message %}
+			<div class="alert alert-danger" role="alert">
+  				{{message}} !
+			</div>
+		{% endif %}
+		<p class="text-center" style="font-size:1.3rem;">Conheça alguns dos nossos <b>PETs</b></p>
+		
+		<div class="d-flex flex-wrap justify-content-center">
+			{% for pet in lista %}
+
+			<div class="card m-4 shadow-lg" style="width: 18rem; min-height: 18rem;">
+				<img src="/{{ pet.image }}" class="card-img-top" alt="...">
+				<div class="card-body">
+				  <h6 class="card-title">{{pet.nome}}</h6>
+				  <a href="{% url 'showDetail' identificador=pet.id %}">
+					  <button class="btn btn-success">Saiba mais</button>
+				  </a>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</body>
 <html>

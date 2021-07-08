@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <title>Sistema Petshop - Detalhe do PET</title>
+    {% include "./widgets/bootstrap.html" %}
+</head>
+
+<body>
+    {% include "./widgets/navbar.html" %}
+    <div class="container mt-4">
+        <h1 class="mb-5">Detalhe do <span class="text-success"><b>PET</b></span></h1>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <img src="/{{pet.image}}" alt="" style="width: 100%;">
+            </div>
+
+            <div class="col-12 col-md-6">
+                <h2>{{pet.nome}}</h2>
+                <p style="font-size:1.2rem;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-clipboard-data" viewBox="0 0 16 16">
+                        <path
+                            d="M4 11a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0v-1zm6-4a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0V7zM7 9a1 1 0 0 1 2 0v3a1 1 0 1 1-2 0V9z" />
+                        <path
+                            d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+                        <path
+                            d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+                    </svg>
+                    {{pet.tipo}}
+                </p>
+                <p style="font-size:1.2rem;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-calendar-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5h16V4H0V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5z" />
+                    </svg>
+                    {{ pet.nascimento | date:'d/m/Y' }}
+                </p>
+
+                <a href="{% url 'deletePet' identificador=pet.id %}"><button class="btn btn-outline-danger">Deletar</button></a>
+                <a href="{% url 'templateView' %}"><button class="btn btn-outline-secondary">Voltar</button></a>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
+
+
+
+<!-- {% url 'templateView' %} -> referencia o link da view -->

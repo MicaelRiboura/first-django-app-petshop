@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <title>Sistema Petshop - Cadastrar PET</title>
+    {% include "./widgets/bootstrap.html" %}
+</head>
+
+<body>
+    {% include "./widgets/navbar.html" %}
+    <div class="container">
+        <h1 class="text-center py-5">Cadastrar <span class="text-success"><b>PET</b></span></h1>
+        <form method="POST" enctype="multipart/form-data" >
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-12">
+                    <label for="nome">Nome</label>
+                    {{formulario.nome}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <label for="tipo">Tipo</label>
+                    {{formulario.tipo}}
+                </div>
+                <div class="col-12 col-md-6">
+                    <label for="nascimento">Nascimento</label>
+                    {{formulario.nascimento}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 my-4">
+                    <label for="imagem">Imagem</label>
+                    {{formulario.image}}
+                </div>
+            </div>
+            <button class="btn btn-success my-3" type="submit">Salvar</button>
+        </form>
+    </div>
+</body>
+
+</html>
